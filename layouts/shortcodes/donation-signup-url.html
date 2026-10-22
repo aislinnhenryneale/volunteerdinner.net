@@ -1,0 +1,5 @@
+{{- with site.Params.donationSignupURL -}}
+	{{- . -}}
+{{- else -}}
+	{{- with site.GetPage "/contact" -}}{{- .RelPermalink -}}{{- end -}}
+{{- end -}}

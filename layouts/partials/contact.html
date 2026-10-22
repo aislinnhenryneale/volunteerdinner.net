@@ -1,0 +1,38 @@
+{{ $kind := .kind }}
+{{ if eq $kind "email" }}
+<section class="contact-panel" aria-labelledby="email-heading">
+	<div>
+		<h2 id="email-heading">{{ i18n "email_heading" }}</h2>
+		<p>{{ i18n "contact_body" }}</p>
+	</div>
+	<a class="button contact-email" href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }} <span aria-hidden="true">↗</span></a>
+</section>
+{{ else }}
+<section class="contact-panel" aria-labelledby="contact-heading">
+	<div>
+		<h2 id="contact-heading">{{ i18n (printf "%s_heading" $kind) }}</h2>
+		{{ if and (eq $kind "donate") site.Params.donationSignupURL }}
+		<p>{{ i18n "donate_signup_body" }}</p>
+		{{ else }}
+		<p>{{ i18n (printf "%s_body" $kind) }}</p>
+		{{ end }}
+	</div>
+	<div class="contact-action">
+		{{ if eq $kind "volunteer" }}
+		<a class="button" href="{{ site.Params.volunteerSignupURL }}">{{ i18n "volunteer_button" }} <span aria-hidden="true">↗</span></a>
+		{{ else if and (eq $kind "donate") site.Params.donationSignupURL }}
+		<a class="button" href="{{ site.Params.donationSignupURL }}">{{ i18n "donate_signup_button" }} <span aria-hidden="true">↗</span></a>
+		{{ else if eq $kind "contact" }}
+		{{ with site.GetPage "/contact" }}
+		<a class="button" href="{{ .RelPermalink }}">{{ i18n "contact_button" }} <span aria-hidden="true">↗</span></a>
+		{{ end }}
+		{{ else }}
+		{{ $query := replace (querify "subject" (i18n (printf "%s_subject" $kind))) "+" "%20" }}
+		<a class="button" href="{{ printf "mailto:%s?%s" hugo.Data.contact.email $query }}">{{ i18n (printf "%s_button" $kind) }} <span aria-hidden="true">↗</span></a>
+		{{ end }}
+		{{ if ne $kind "contact" }}
+		<span class="email-address">{{ hugo.Data.contact.email }}</span>
+		{{ end }}
+	</div>
+</section>
+{{ end }}

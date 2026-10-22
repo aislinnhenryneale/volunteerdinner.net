@@ -1,0 +1,114 @@
+[skip_content]
+	other = "Skip to content"
+[main_navigation]
+	other = "Main navigation"
+[language_navigation]
+	other = "Choose your language"
+[menu]
+	other = "Menu"
+[home_link]
+	other = "Home"
+[dinner_link]
+	other = "Come for dinner"
+[volunteer_link]
+	other = "Lend a hand"
+[donate_link]
+	other = "Make a donation"
+[story_link]
+	other = "Read our story"
+[dinner_description]
+	other = "A free meal and some company on December 25. Find out what to expect and how to join us."
+[volunteer_description]
+	other = "Help prepare food on December 24 or serve the community on December 25."
+[donate_description]
+	other = "Cooked turkeys, desserts, or funds. Your generosity helps put dinner on the table."
+[date_label]
+	other = "Every year"
+[city_label]
+	other = "Our community"
+[price_label]
+	other = "The meal"
+[price_value]
+	other = "Always free"
+[people_label]
+	other = "Made possible by"
+[people_value]
+	other = "Volunteers"
+[event_title]
+	other = "The next dinner"
+[event_date]
+	other = "{{ .Date }}, {{ .Year }}"
+[where_label]
+	other = "Where"
+[venue_map]
+	other = "View the SC building on the campus map"
+[when_label]
+	other = "When"
+[time_label]
+	other = "Serving hours"
+[photo_alt]
+	other = "Guests and volunteers sharing the community dinner in 2024."
+[photo_caption]
+	other = "Around the table together · 2024"
+[turkey_eyebrow]
+	other = "A special way to help"
+[turkey_link]
+	other = "About donating a turkey"
+[story_eyebrow]
+	other = "At the heart of it"
+[contact_heading]
+	other = "A question? A helping hand?"
+[contact_body]
+	other = "For dinner details, volunteering, or donations, get in touch with the organizing team."
+[contact_button]
+	other = "Contact the team"
+[email_heading]
+	other = "Email the team"
+[contact_subject]
+	other = "Volunteer Dinner — a question"
+[volunteer_heading]
+	other = "Let’s find a way for you to help."
+[volunteer_body]
+	other = "Complete the volunteer sign-up form to offer your help."
+[volunteer_button]
+	other = "Sign up to volunteer"
+[donate_heading]
+	other = "Every contribution starts with a conversation."
+[donate_body]
+	other = "Contact the team to coordinate your donation and find out what’s needed."
+[donate_button]
+	other = "Email about a donation"
+[donate_subject]
+	other = "Volunteer Dinner — a donation"
+[donate_signup_body]
+	other = "Complete the donation form to offer a turkey, desserts, or an individual monetary donation."
+[donate_signup_button]
+	other = "Sign up to donate"
+[footer_description]
+	other = "A free meal. A shared table. A community that cares."
+[footer_note]
+	other = "Montreal, Canada · December 25 · Non-religious · Non-profit · Entirely volunteer-run"
+[not_found_title]
+	other = "There’s no page here."
+[not_found_text]
+	other = "The page you’re looking for may have moved. Let’s get you back to the table."
+[back_home]
+	other = "Back to the homepage"
+[donor_type]
+	other = "Type"
+[donor_organizations]
+	other = "Companies and organizations"
+[donor_individuals]
+	other = "Individual donors"
+[donor_name]
+	other = "Donor"
+[donor_description]
+	other = "Description"
+[donors_empty]
+	other = "Donor acknowledgements will appear here."
+[donors_heading]
+	other = "Thank you to our donors."
+[donors_body]
+	other = "Meet the individuals, companies, and organizations who help make this dinner possible."
+[donors_button]
+	other = "See our donors"

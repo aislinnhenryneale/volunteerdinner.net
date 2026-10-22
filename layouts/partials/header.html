@@ -1,0 +1,18 @@
+<header class="site-header">
+	<div class="container header-inner">
+		<a class="brand" href="{{ .Site.Home.RelPermalink }}">
+			<img src="{{ "images/plate.svg" | relURL }}" width="48" height="48" alt="">
+			<span>{{ .Site.Title }}</span>
+		</a>
+		<nav class="desktop-nav" aria-label="{{ i18n "main_navigation" }}">
+			{{ partial "menu.html" . }}
+		</nav>
+		{{ partial "languages.html" . }}
+		<details class="mobile-nav">
+			<summary>{{ i18n "menu" }} <span aria-hidden="true">☰</span></summary>
+			<nav aria-label="{{ i18n "main_navigation" }}">
+				{{ partial "menu.html" . }}
+			</nav>
+		</details>
+	</div>
+</header>

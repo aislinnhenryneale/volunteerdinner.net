@@ -1,0 +1,114 @@
+[skip_content]
+	other = "Aller au contenu"
+[main_navigation]
+	other = "Navigation principale"
+[language_navigation]
+	other = "Choisir votre langue"
+[menu]
+	other = "Menu"
+[home_link]
+	other = "Accueil"
+[dinner_link]
+	other = "Venir au dîner"
+[volunteer_link]
+	other = "Donner un coup de main"
+[donate_link]
+	other = "Faire un don"
+[story_link]
+	other = "Lire notre histoire"
+[dinner_description]
+	other = "Un repas gratuit et de la compagnie le 25 décembre. Découvrez le dîner et les détails pour y participer."
+[volunteer_description]
+	other = "Aidez à préparer les repas le 24 décembre ou à servir la communauté le 25 décembre."
+[donate_description]
+	other = "Des dindes cuites, des desserts ou un don financier. Votre générosité rend le dîner possible."
+[date_label]
+	other = "Chaque année"
+[city_label]
+	other = "Notre communauté"
+[price_label]
+	other = "Le repas"
+[price_value]
+	other = "Toujours gratuit"
+[people_label]
+	other = "Rendu possible par"
+[people_value]
+	other = "Les bénévoles"
+[event_title]
+	other = "Le prochain dîner"
+[event_date]
+	other = "{{ .Date }} {{ .Year }}"
+[where_label]
+	other = "Lieu"
+[venue_map]
+	other = "Voir le pavillon SC sur le plan du campus"
+[when_label]
+	other = "Date"
+[time_label]
+	other = "Heures de service"
+[photo_alt]
+	other = "Des convives et des bénévoles réunis au dîner communautaire de 2024."
+[photo_caption]
+	other = "Ensemble autour de la table · 2024"
+[turkey_eyebrow]
+	other = "Une aide précieuse"
+[turkey_link]
+	other = "Offrir une dinde"
+[story_eyebrow]
+	other = "Au cœur du dîner"
+[contact_heading]
+	other = "Une question? Un coup de main?"
+[contact_body]
+	other = "Pour les détails du dîner, le bénévolat ou les dons, contactez l’équipe d’organisation."
+[contact_button]
+	other = "Contacter l’équipe"
+[email_heading]
+	other = "Écrire à l’équipe"
+[contact_subject]
+	other = "Le dîner bénévole — une question"
+[volunteer_heading]
+	other = "Trouvons comment vous pouvez aider."
+[volunteer_body]
+	other = "Remplissez le formulaire d’inscription pour offrir votre aide."
+[volunteer_button]
+	other = "S’inscrire comme bénévole"
+[donate_heading]
+	other = "Chaque contribution commence par une conversation."
+[donate_body]
+	other = "Contactez l’équipe pour organiser votre don et connaître les besoins."
+[donate_button]
+	other = "Écrire au sujet d’un don"
+[donate_subject]
+	other = "Le dîner bénévole — un don"
+[donate_signup_body]
+	other = "Remplissez le formulaire de don pour offrir une dinde, des desserts ou un don financier à titre individuel."
+[donate_signup_button]
+	other = "S’inscrire pour faire un don"
+[footer_description]
+	other = "Un repas gratuit. Une table commune. Une communauté solidaire."
+[footer_note]
+	other = "Montreal, Canada · 25 décembre · Non religieux · Sans but lucratif · Entièrement bénévole"
+[not_found_title]
+	other = "Cette page est introuvable."
+[not_found_text]
+	other = "La page que vous cherchez a peut-être déménagé. Retrouvons le chemin de la table."
+[back_home]
+	other = "Retour à l’accueil"
+[donor_type]
+	other = "Type"
+[donor_organizations]
+	other = "Entreprises et organismes"
+[donor_individuals]
+	other = "Donateurs individuels"
+[donor_name]
+	other = "Donateur"
+[donor_description]
+	other = "Description"
+[donors_empty]
+	other = "Les remerciements aux donateurs seront publiés ici."
+[donors_heading]
+	other = "Merci à nos donateurs."
+[donors_body]
+	other = "Découvrez les particuliers, entreprises et organismes qui rendent ce dîner possible."
+[donors_button]
+	other = "Voir nos donateurs"

@@ -1,0 +1,22 @@
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-top">
+			<div>
+				<a class="footer-brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+				<p>{{ i18n "footer_description" }}</p>
+				<a class="email-link" href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a>
+			</div>
+			<nav aria-label="{{ i18n "main_navigation" }}">
+				<ul>
+					{{ range .Site.Menus.footer }}
+					<li><a href="{{ .URL }}">{{ .Name }}</a></li>
+					{{ end }}
+				</ul>
+			</nav>
+		</div>
+		<div class="footer-bottom">
+			<p>{{ i18n "footer_note" }}</p>
+			{{ partial "languages.html" . }}
+		</div>
+	</div>
+</footer>

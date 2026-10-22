@@ -1,0 +1,89 @@
+Volunteer Dinner
+===================================
+
+The Hugo website for the annual free community dinner in Montreal.
+
+Development
+-----------
+
+Install Hugo (0.158.0 or later; tested with 0.162.1). Standard Hugo is sufficient;
+there are no theme submodules, JavaScript packages, external fonts, or Sass
+dependencies.
+
+	make server
+
+English is at http://localhost:1313/ and French at http://localhost:1313/fr/.
+Build the production site with:
+
+	make build
+
+Generated files are in public/. Do not edit those files directly.
+The logo and favicon live in static/images/ and are copied unchanged.
+The original hall photo lives in assets/images/; Hugo creates a 1200-pixel-wide
+version for the homepage and social previews. CSS lives in assets/css/ and
+is minified and fingerprinted by Hugo.
+The 2024 dinner photo comes from the original project page.
+
+Content and translations
+------------------------
+
+The active dinner year lives in config.toml under params.activeYear. Update it
+for each edition; both languages use it in the next-dinner summaries.
+Other event details live in data/dinner.toml. Keep the date, venue, and hours
+current in both languages, along with the When and where section on the dinner
+pages. The street address can be added when needed.
+
+The volunteer sign-up form URL lives in config.toml under
+params.volunteerSignupURL. Both languages use this URL for their sign-up buttons.
+Publish the form before announcing sign-ups.
+
+The donation sign-up form URL lives in config.toml under params.donationSignupURL.
+It covers turkeys, desserts, and individual monetary donations. Both languages
+use this URL for the donation button when it is set. Leave it empty to keep the
+email button until the form is ready.
+
+The public contact address lives in data/contact.toml. General inquiries and
+the fallback donation button open an email to this address. Arrange turkey
+preparation and delivery directly with the organizing team.
+
+Before announcing a dinner, confirm its details, check the public contact,
+review both translations, and add any current flyer or sponsor acknowledgements.
+Do not promise registration arrangements, accessibility, delivery, dietary
+accommodations, or donation receipts without confirmation from the team.
+
+Donor acknowledgements
+---------------------
+
+Donor records live in data/donors/<year>.json, one file per year. Each file
+contains organizations and individuals arrays. The pages list years from
+newest to oldest, with companies and organizations first and individual donors
+underneath. Empty groups are hidden.
+
+Every entry is published, so add only donors who have opted in. There is no
+consent flag and no placeholder data.
+
+Organization entries have a translated name (en and fr), optional translated
+type and description fields, an optional url, and an optional logo path
+relative to static/. Individual entries contain only an untranslated name:
+
+	{"name": "James (@purpleidea)"}
+
+The English and French donor pages are linked from the donation pages.
+They have no header or footer menu entries.
+
+Sources
+-------
+
+General information: https://purpleidea.com/projects/dinner/
+History and meal counts: https://purpleidea.com/misc/dinner/
+
+Deployment
+----------
+
+The GitHub Pages workflow builds pull requests without deploying. A push to
+master or a manual workflow run on master builds and deploys the site.
+Configure the repository's Pages source as GitHub Actions and its custom domain
+as volunteerdinner.net; static/CNAME supplies that domain in the generated site.
+Publishing requires the repository and domain configuration to be in place.
+
+Use a branch for changes. Local reference material under tmp/ is ignored.

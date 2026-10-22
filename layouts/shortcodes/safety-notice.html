@@ -1,0 +1,6 @@
+{{ $image := resources.Get "images/stop.jpg" }}
+{{ $image = $image.Resize "240x jpg q85" }}
+<div class="safety-notice">
+	<img src="{{ $image.RelPermalink }}" alt="" width="{{ $image.Width }}" height="{{ $image.Height }}">
+	<div>{{ .Inner | markdownify }}</div>
+</div>

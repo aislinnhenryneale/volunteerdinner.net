@@ -1,0 +1,25 @@
+{{ $event := hugo.Data.dinner }}
+{{ $local := index $event .Language.Name }}
+{{ if not (and .Site.Params.activeYear $local.date $local.venue $local.hours) }}
+	{{ errorf "Dinner details require params.activeYear, a date, venue, and hours (%s)" .Language.Name }}
+{{ end }}
+<aside class="event-notice" aria-labelledby="event-heading">
+	<div>
+		<p class="eyebrow">{{ i18n "event_title" }}</p>
+		<h2 id="event-heading">{{ i18n "event_date" (dict "Date" $local.date "Year" .Site.Params.activeYear) }}</h2>
+		<dl class="event-details">
+			<div>
+				<dt>{{ i18n "where_label" }}</dt>
+				<dd>
+					{{ with $event.venue_url }}<a href="{{ . }}">{{ $local.venue }}</a>{{ else }}{{ $local.venue }}{{ end }}
+					{{ if .IsHome }}
+						{{ with $local.campus }}<br>{{ . }}{{ end }}
+						{{ with $event.address }}<br>{{ . }}{{ end }}
+						{{ with $event.map_url }}<br><a href="{{ . }}">{{ i18n "venue_map" }}</a>{{ end }}
+					{{ end }}
+				</dd>
+			</div>
+			<div><dt>{{ i18n "time_label" }}</dt><dd>{{ $local.hours }}</dd></div>
+		</dl>
+	</div>
+</aside>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{{- $title := .Site.Title -}}
+	{{- if not .IsHome }}{{ $title = printf "%s | %s" .Title .Site.Title }}{{ end }}
+	{{- if eq .Kind "404" }}{{ $title = printf "%s | %s" (i18n "not_found_title") .Site.Title }}{{ end }}
+	<title>{{ $title }}</title>
+	{{- $description := .Description | default .Site.Params.description }}
+	<meta name="description" content="{{ $description }}">
+	{{ if eq .Kind "404" }}
+	<meta name="robots" content="noindex">
+	{{ else }}
+	<link rel="canonical" href="{{ .Permalink }}">
+	{{ range .AllTranslations }}
+	<link rel="alternate" hreflang="{{ .Site.Language.Locale }}" href="{{ .Permalink }}">
+	{{ end }}
+	{{ end }}
+	<meta name="theme-color" content="#254b3e">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="{{ .Site.Title }}">
+	<meta property="og:title" content="{{ $title }}">
+	<meta property="og:description" content="{{ $description }}">
+	<meta property="og:url" content="{{ .Permalink }}">
+	<meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}">
+	{{ $photo := resources.Get "images/hall-2024.jpg" }}
+	{{ $photo = $photo.Resize "1200x jpg q85" }}
+	<meta property="og:image" content="{{ $photo.Permalink }}">
+	<meta property="og:image:alt" content="{{ i18n "photo_alt" }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="icon" href="{{ "images/plate.svg" | relURL }}" type="image/svg+xml">
+	{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+	<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+</head>
+<body>
+	<a class="skip-link" href="#main">{{ i18n "skip_content" }}</a>
+	{{ partial "header.html" . }}
+	<main id="main">
+		{{ block "main" . }}{{ end }}
+	</main>
+	{{ partial "footer.html" . }}
+</body>
+</html>

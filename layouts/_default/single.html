@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container inner-page">
+	<header class="page-heading">
+		<p class="eyebrow">{{ .Params.eyebrow }}</p>
+		<h1>{{ .Title }}</h1>
+	</header>
+	{{ if .Params.show_event }}{{ partial "event.html" . }}{{ end }}
+	<article class="prose{{ if .Params.no_lead }} prose-no-lead{{ end }}">
+		{{ .Content }}
+	</article>
+	{{ with .Params.cta }}
+	{{ partial "contact.html" (dict "kind" .) }}
+	{{ end }}
+</div>
+{{ end }}

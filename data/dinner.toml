@@ -1,0 +1,18 @@
+# Shared by both languages. The active year lives in config.toml.
+address = "SC Building, 7141 Sherbrooke St W, Montreal, Quebec, H4B 1R6, Canada"
+venue_url = "https://www.concordia.ca/campus-life/food-services/places-to-eat/buzz-dining-hall.html"
+map_url = "https://www.concordia.ca/maps/loyola-campus.html?building=SC"
+
+[en]
+	date = "December 25"
+	city = "Montreal, Canada"
+	venue = "The Concordia Buzz Dining Hall / Cafeteria"
+	campus = "Loyola campus"
+	hours = "1 pm to 7 pm"
+
+[fr]
+	date = "25 décembre"
+	city = "Montreal, Canada"
+	venue = "Salle à manger / cafétéria Buzz de Concordia"
+	campus = "Campus Loyola"
+	hours = "13 h à 19 h"

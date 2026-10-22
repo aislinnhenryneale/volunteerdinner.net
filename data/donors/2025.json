@@ -1,0 +1,25 @@
+{
+	"organizations": [
+		{
+			"type": {
+				"en": "Venue",
+				"fr": "Lieu"
+			},
+			"name": {
+				"en": "Concordia University",
+				"fr": "Université Concordia"
+			},
+			"description": {
+				"en": "Generous donation of kitchen and dining hall space.",
+				"fr": "Don généreux de locaux de cuisine et de salle à manger."
+			},
+			"url": "https://www.concordia.ca/",
+			"logo": ""
+		}
+	],
+	"individuals": [
+		{
+			"name": "James (@purpleidea)"
+		}
+	]
+}

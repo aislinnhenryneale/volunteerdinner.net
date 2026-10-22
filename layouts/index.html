@@ -1,0 +1,84 @@
+{{ define "main" }}
+{{ $event := index hugo.Data.dinner .Language.Name }}
+<section class="container hero">
+	<div class="hero-copy">
+		<p class="eyebrow">{{ .Params.eyebrow }}</p>
+		<h1>{{ .Params.heading }}</h1>
+		<p class="lead">{{ .Params.intro }}</p>
+		<div class="hero-actions">
+			{{ with .Site.GetPage "/dinner" }}<a class="button" href="{{ .RelPermalink }}">{{ i18n "dinner_link" }} <span aria-hidden="true">↗</span></a>{{ end }}
+			{{ with .Site.GetPage "/volunteer" }}<a class="text-link" href="{{ .RelPermalink }}">{{ i18n "volunteer_link" }} <span aria-hidden="true">→</span></a>{{ end }}
+		</div>
+	</div>
+	<figure class="hero-photo">
+		{{ $photo := resources.Get "images/hall-2024.jpg" }}
+		{{ $photo = $photo.Resize "1200x jpg q85" }}
+		<img src="{{ $photo.RelPermalink }}" alt="{{ i18n "photo_alt" }}" width="{{ $photo.Width }}" height="{{ $photo.Height }}" fetchpriority="high">
+		<figcaption>{{ i18n "photo_caption" }}</figcaption>
+	</figure>
+</section>
+<div class="facts-band">
+	<dl class="container facts">
+		<div><dt>{{ i18n "date_label" }}</dt><dd>{{ $event.date }}</dd></div>
+		<div><dt>{{ i18n "city_label" }}</dt><dd>{{ $event.city }}</dd></div>
+		<div><dt>{{ i18n "price_label" }}</dt><dd>{{ i18n "price_value" }}</dd></div>
+		<div><dt>{{ i18n "people_label" }}</dt><dd>{{ i18n "people_value" }}</dd></div>
+	</dl>
+</div>
+<div class="container">
+	{{ partial "event.html" . }}
+	<section class="welcome section-space">
+		<h2>{{ .Params.welcome_heading }}</h2>
+		<p class="lead">{{ .Params.welcome_body }}</p>
+	</section>
+	<section class="participate section-space" aria-labelledby="participate-heading">
+		<div class="section-intro">
+			<h2 id="participate-heading">{{ .Params.help_heading }}</h2>
+			<p>{{ .Params.help_intro }}</p>
+		</div>
+		<div class="ways">
+			{{ range $index, $kind := slice "dinner" "volunteer" "donate" }}
+			{{ with $.Site.GetPage (printf "/%s" $kind) }}
+			<article class="way">
+				<span class="way-number" aria-hidden="true">0{{ add $index 1 }}</span>
+				<h3><a href="{{ .RelPermalink }}">{{ i18n (printf "%s_link" $kind) }} <span aria-hidden="true">↗</span></a></h3>
+				<p>{{ i18n (printf "%s_description" $kind) }}</p>
+			</article>
+			{{ end }}
+			{{ end }}
+		</div>
+	</section>
+</div>
+<section class="turkey-section">
+	<div class="container turkey-inner">
+		<div>
+			<p class="eyebrow">{{ i18n "turkey_eyebrow" }}</p>
+			<h2>{{ .Params.turkey_heading }}</h2>
+		</div>
+		<div>
+			<p class="lead">{{ .Params.turkey_body }}</p>
+			{{ with .Site.GetPage "/donate" }}<a class="button button-light" href="{{ .RelPermalink }}">{{ i18n "turkey_link" }} <span aria-hidden="true">↗</span></a>{{ end }}
+		</div>
+	</div>
+</section>
+<div class="container">
+	<section class="story section-space">
+		<p class="eyebrow">{{ i18n "story_eyebrow" }}</p>
+		<h2>{{ .Params.story_heading }}</h2>
+		<p class="lead">{{ .Params.story_body }}</p>
+		{{ with .Site.GetPage "/about" }}<a class="text-link" href="{{ .RelPermalink }}">{{ i18n "story_link" }} <span aria-hidden="true">→</span></a>{{ end }}
+	</section>
+	{{ with .Site.GetPage "/donors" }}
+	<section class="contact-panel" aria-labelledby="donors-heading">
+		<div>
+			<h2 id="donors-heading">{{ i18n "donors_heading" }}</h2>
+			<p>{{ i18n "donors_body" }}</p>
+		</div>
+		<div class="contact-action">
+			<a class="button" href="{{ .RelPermalink }}">{{ i18n "donors_button" }} <span aria-hidden="true">↗</span></a>
+		</div>
+	</section>
+	{{ end }}
+	{{ partial "contact.html" (dict "kind" "contact") }}
+</div>
+{{ end }}

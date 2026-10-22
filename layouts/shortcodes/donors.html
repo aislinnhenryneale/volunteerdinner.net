@@ -1,0 +1,52 @@
+{{ $language := .Page.Language.Name }}
+{{ $years := slice }}
+{{ range $year, $donors := hugo.Data.donors }}
+	{{ if or $donors.organizations $donors.individuals }}
+		{{ $years = $years | append (dict "year" $year "donors" $donors) }}
+	{{ end }}
+{{ end }}
+{{ range sort $years "year" "desc" }}
+{{ $year := .year }}
+{{ $donors := .donors }}
+<section aria-labelledby="donors-{{ .year }}">
+	<h2 id="donors-{{ .year }}">{{ .year }}</h2>
+	{{ range $group := slice "organizations" "individuals" }}
+	{{ with index $donors $group }}
+	<section class="donor-group" aria-labelledby="donors-{{ $year }}-{{ $group }}">
+		<h3 id="donors-{{ $year }}-{{ $group }}">{{ i18n (printf "donor_%s" $group) }}</h3>
+		{{ if eq $group "individuals" }}
+		<ul>
+			{{ range . }}
+			<li>{{ .name }}</li>
+			{{ end }}
+		</ul>
+		{{ else }}
+		<table aria-labelledby="donors-{{ $year }}-{{ $group }}">
+			<thead>
+				<tr>
+					<th scope="col">{{ i18n "donor_type" }}</th>
+					<th scope="col">{{ i18n "donor_name" }}</th>
+					<th scope="col">{{ i18n "donor_description" }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{ range . }}
+				<tr>
+					<td>{{ with .type }}{{ index . $language }}{{ end }}</td>
+					<th scope="row">
+						{{ with .logo }}<img class="donor-logo" src="{{ . | relURL }}" alt="" loading="lazy">{{ end }}
+						{{ if .url }}<a href="{{ .url }}">{{ index .name $language }}</a>{{ else }}{{ index .name $language }}{{ end }}
+					</th>
+					<td>{{ with .description }}{{ index . $language }}{{ end }}</td>
+				</tr>
+				{{ end }}
+			</tbody>
+		</table>
+		{{ end }}
+	</section>
+	{{ end }}
+	{{ end }}
+</section>
+{{ else }}
+<p>{{ i18n "donors_empty" }}</p>
+{{ end }}

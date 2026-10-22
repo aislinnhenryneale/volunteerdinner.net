@@ -1,0 +1,15 @@
+<nav class="languages" aria-label="{{ i18n "language_navigation" }}">
+	{{- $page := . -}}
+	{{- range hugo.Sites }}
+		{{- $language := .Language.Name -}}
+		{{- if eq $language $page.Language.Name }}
+		<span lang="{{ .Language.Locale }}" aria-current="true">{{ .Language.Label }}</span>
+		{{- else }}
+			{{- $target := .Home -}}
+			{{- range $page.Translations -}}
+				{{- if eq .Language.Name $language }}{{ $target = . }}{{ end -}}
+			{{- end }}
+		<a lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" href="{{ $target.RelPermalink }}">{{ .Language.Label }}</a>
+		{{- end }}
+	{{- end }}
+</nav>

@@ -1,0 +1,34 @@
+baseURL = "https://volunteerdinner.net/"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[languages]
+	[languages.en]
+		label = "English"
+		locale = "en-CA"
+		title = "Volunteer Dinner"
+		weight = 1
+		[languages.en.params]
+			description = "A free community dinner in Montreal on December 25. Everyone is welcome. Entirely run by volunteers."
+	[languages.fr]
+		label = "Français"
+		locale = "fr-CA"
+		title = "Le dîner bénévole"
+		weight = 2
+		[languages.fr.params]
+			description = "Un repas communautaire gratuit à Montreal le 25 décembre. Tout le monde est bienvenu. Entièrement organisé par des bénévoles."
+
+[params]
+	activeYear = 2026
+
+	# Publish the form before announcing sign-ups.
+	volunteerSignupURL = "https://docs.google.com/forms/d/e/1FAIpQLSfV7JiquajNbcQkOcu5FvIcGdORAfIkvLgMivQ3VJ9Gdgjhkw/viewform"
+
+	# Form for turkey, dessert, and individual monetary donations.
+	# An empty URL keeps the donation email button available.
+	donationSignupURL = "https://docs.google.com/forms/d/e/1FAIpQLSfDT0-dOp2o8uc_8gAuM_q1449_K8X-JSU-aqqs53hGSWDwWw/viewform"
+
+[markup.goldmark.renderer]
+	unsafe = false
